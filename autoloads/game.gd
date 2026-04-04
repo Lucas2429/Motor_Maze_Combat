@@ -7,9 +7,9 @@ signal player_index_received()
 
 @export var multiplayer_test = false
 @export var use_roles = true
-@export var unique_roles = true # won't start with repeated roles
+@export var unique_roles = false # won't start with repeated roles
 @export var all_roles = true # won't start if all roles aren't selected
-@export var min_players = 2 # won't start if there are at least these players
+@export var min_players = 3 # won't start if there are at least these players
 @export var fill_screen = true
 @export var test_players: Array[PlayerDataResource] = [] # first one is server
 @export var main_scene: PackedScene
