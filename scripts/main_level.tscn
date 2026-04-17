@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bbiiimbod7rqn"]
+
+[ext_resource type="Script" uid="uid://daox55pe6qwc" path="res://main_level.gd" id="1_ars8u"]
+[ext_resource type="PackedScene" uid="uid://utk3y23ei7px" path="res://autoloads/player_submachinegun.tscn" id="2_wjjqm"]
+[ext_resource type="PackedScene" uid="uid://deo7dwjwaks5c" path="res://autoloads/player_shotgun.tscn" id="3_nqvq7"]
+[ext_resource type="PackedScene" uid="uid://c6cj4wphhrdhq" path="res://autoloads/player_rocketlauncher.tscn" id="4_f5ffb"]
+
+[node name="MainLevel" type="Node2D" unique_id=1630760309]
+script = ExtResource("1_ars8u")
+player_scene_submachinegun = ExtResource("2_wjjqm")
+player_scene_shotgun = ExtResource("3_nqvq7")
+player_scene_rocketlauncher = ExtResource("4_f5ffb")
+
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=498242867]
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPoints" unique_id=1960712945]
+position = Vector2(205, 223)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPoints" unique_id=306221836]
+position = Vector2(542, 222)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPoints" unique_id=443337398]
+position = Vector2(892, 233)
+
+[node name="Players" type="Node2D" parent="." unique_id=917240552]
+
+[node name="Nametags" type="Node2D" parent="." unique_id=548572305]
