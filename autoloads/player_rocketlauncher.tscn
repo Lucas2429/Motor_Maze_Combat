@@ -1,53 +1,18 @@
-[gd_scene format=3 uid="uid://c6cj4wphhrdhq"]
+[gd_scene format=3 uid="uid://cvs0smaoexw4l"]
 
-[ext_resource type="Script" uid="uid://d0wv7xdm6cl2v" path="res://autoloads/player_rocketlauncher.gd" id="1_iqh21"]
-[ext_resource type="Texture2D" uid="uid://cuecxe02w1qj7" path="res://resources/BlueStrip.png" id="2_ca3qv"]
-[ext_resource type="PackedScene" uid="uid://cju13aqcgvqjl" path="res://autoloads/bullet.tscn" id="2_nst2a"]
-[ext_resource type="Texture2D" uid="uid://c1bllm6oc2yv3" path="res://resources/Thick Bazooka - M20 [192x32].png" id="3_iqh21"]
+[ext_resource type="PackedScene" uid="uid://c8w60takr33uv" path="res://autoloads/basicplayer.tscn" id="1_b5yoq"]
+[ext_resource type="Script" uid="uid://58usrognkw4j" path="res://scripts/player_rocket.gd" id="2_xgt5q"]
+[ext_resource type="Texture2D" uid="uid://c1bllm6oc2yv3" path="res://resources/Thick Bazooka - M20 [192x32].png" id="3_23ai5"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nh5l"]
-size = Vector2(16.333334, 10)
+[node name="player" unique_id=838864319 instance=ExtResource("1_b5yoq")]
+script = ExtResource("2_xgt5q")
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_6nh5l"]
-properties/0/path = NodePath(".:position")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-properties/1/path = NodePath(".:rotation")
-properties/1/spawn = true
-properties/1/replication_mode = 1
-
-[node name="player" type="CharacterBody2D" unique_id=838864319]
-motion_mode = 1
-script = ExtResource("1_iqh21")
-bullet = ExtResource("2_nst2a")
-cooldown_shoot = 0.8
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1296237118]
-rotation = -1.5707964
-scale = Vector2(1.5330429, 1.5621595)
-texture = ExtResource("2_ca3qv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1209829879]
-rotation = -1.5707964
-scale = Vector2(6, 6)
-shape = SubResource("RectangleShape2D_6nh5l")
-
-[node name="Label" type="Label" parent="." unique_id=825021961]
-top_level = true
-offset_left = -21.0
-offset_top = -91.0
-offset_right = 19.0
-offset_bottom = -68.0
-
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=723801349]
-replication_config = SubResource("SceneReplicationConfig_6nh5l")
-
-[node name="Mp5" type="Sprite2D" parent="." unique_id=1175670717]
+[node name="Mp5" type="Sprite2D" parent="." index="5" unique_id=404506761]
 show_behind_parent = true
 position = Vector2(28, -1.0000014)
 rotation = 1.5707964
 scale = Vector2(0.5, 0.8)
-texture = ExtResource("3_iqh21")
+texture = ExtResource("3_23ai5")
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=356850573]
+[node name="Marker2D" type="Marker2D" parent="." index="6" unique_id=1903320480]
 position = Vector2(32, -33)

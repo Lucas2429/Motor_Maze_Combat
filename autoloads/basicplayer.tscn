@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://c8w60takr33uv"]
 
-[ext_resource type="Script" uid="uid://bp5f3aetf25lh" path="res://autoloads/basicplayer.gd" id="1_6nh5l"]
+[ext_resource type="Script" uid="uid://bp5f3aetf25lh" path="res://scripts/basicplayer.gd" id="1_6nh5l"]
 [ext_resource type="Texture2D" uid="uid://cuecxe02w1qj7" path="res://resources/BlueStrip.png" id="2_6nh5l"]
+[ext_resource type="PackedScene" uid="uid://cju13aqcgvqjl" path="res://autoloads/bullet.tscn" id="2_53le0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6nh5l"]
 size = Vector2(16.333334, 10)
@@ -17,6 +18,7 @@ properties/1/replication_mode = 1
 [node name="player" type="CharacterBody2D" unique_id=838864319]
 motion_mode = 1
 script = ExtResource("1_6nh5l")
+bullet_scene = ExtResource("2_53le0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1296237118]
 rotation = -1.5707964
@@ -37,3 +39,7 @@ offset_bottom = -68.0
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=723801349]
 replication_config = SubResource("SceneReplicationConfig_6nh5l")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1767176886]
+_spawnable_scenes = PackedStringArray("uid://cju13aqcgvqjl")
+spawn_path = NodePath(".")

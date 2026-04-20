@@ -1,7 +1,6 @@
 class_name BasicPlayer
 extends CharacterBody2D
 
-
 @export var max_angle=999999999
 @export var angular_acceleration=3
 
@@ -10,11 +9,14 @@ extends CharacterBody2D
 
 @export var max_speed=800
 @export var acceleration=1000
+@export var bullet_scene: PackedScene 
 
 @onready var label: Label = $Label
 @onready var label_position= Vector2(-21,-91)
 @onready var multiplayer_synchronizer: MultiplayerSynchronizer = $MultiplayerSynchronizer
+@onready var multiplayer_spawner: MultiplayerSpawner = $MultiplayerSpawner
 
+@rpc("authority","call_local")
 func shoot() -> void:
 	return
 
@@ -30,10 +32,10 @@ func _physics_process(delta: float) -> void:
 		var speed = move_toward(velocity.length(), max_speed,acceleration * delta)
 		velocity.y = speed*cos(rotation) * move_direction
 		velocity.x = speed*sin(-rotation) * move_direction
-
+		
 		cooldown_shoot-=delta
 		if Input.is_action_pressed("shoot") and cooldown_shoot<0:
-			shoot()
+			shoot.rpc()
 		move_and_slide()
 	
 func setup(data: Statics.PlayerData) -> void:

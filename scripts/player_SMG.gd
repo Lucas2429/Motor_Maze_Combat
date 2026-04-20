@@ -1,19 +1,16 @@
-class_name PlayerSubmachinegun
+class_name PlayerSMG
 extends BasicPlayer
+
 @onready var marker_2d_2: Marker2D = $Marker2D2
 @onready var marker_2d: Marker2D = $Marker2D
 
-
-@export var bullet:PackedScene
-
 var booleano: bool=true
 
-
 func shoot() -> void:
-	cooldown_shoot=cooldown_max
+	cooldown_shoot=0.1
 	booleano=booleano==false
-	var b = bullet.instantiate()
-	get_tree().root.add_child(b)
+	var b = bullet_scene.instantiate()
+	multiplayer_spawner.add_child(b, true)
 	if booleano:
 		b.transform = marker_2d.global_transform
 	else:
