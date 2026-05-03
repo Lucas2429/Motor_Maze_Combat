@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://cju13aqcgvqjl"]
+[gd_scene format=3 uid="uid://bxgyb4dpdnw1k"]
 
-[ext_resource type="Script" uid="uid://bfiqtk2tpnqtw" path="res://autoloads/bullet.gd" id="1_021lq"]
-[ext_resource type="Texture2D" uid="uid://bj4ixh2i88x6v" path="res://resources/All_Fire_Bullet_Pixel_16x16_00.png" id="2_021lq"]
+[ext_resource type="Script" uid="uid://bfiqtk2tpnqtw" path="res://autoloads/bullet.gd" id="1_ncent"]
+[ext_resource type="Texture2D" uid="uid://bj4ixh2i88x6v" path="res://resources/All_Fire_Bullet_Pixel_16x16_00.png" id="2_ncent"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_021lq"]
 
@@ -13,44 +13,44 @@ properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nju1u"]
-atlas = ExtResource("2_021lq")
-region = Rect2(336, 144, 16, 14)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncent"]
+atlas = ExtResource("2_ncent")
+region = Rect2(256, 240, 32, 19)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_22j40"]
-atlas = ExtResource("2_021lq")
-region = Rect2(352, 144, 16, 14)
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g7kt"]
+atlas = ExtResource("2_ncent")
+region = Rect2(288, 240, 32, 19)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lwe8n"]
-atlas = ExtResource("2_021lq")
-region = Rect2(368, 144, 16, 14)
+[sub_resource type="AtlasTexture" id="AtlasTexture_33qri"]
+atlas = ExtResource("2_ncent")
+region = Rect2(320, 240, 32, 19)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vue68"]
-atlas = ExtResource("2_021lq")
-region = Rect2(384, 144, 16, 14)
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6nu5"]
+atlas = ExtResource("2_ncent")
+region = Rect2(352, 240, 32, 19)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ie4at"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nju1u")
+"texture": SubResource("AtlasTexture_ncent")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_22j40")
+"texture": SubResource("AtlasTexture_5g7kt")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lwe8n")
+"texture": SubResource("AtlasTexture_33qri")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vue68")
+"texture": SubResource("AtlasTexture_f6nu5")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="Bullet" type="Area2D" unique_id=593887549]
-script = ExtResource("1_021lq")
+[node name="Rocket" type="Area2D" unique_id=593887549]
+script = ExtResource("1_ncent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1563554526]
 scale = Vector2(0.7, 0.7)
@@ -62,6 +62,6 @@ replication_config = SubResource("SceneReplicationConfig_021lq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=504137459]
 rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_ie4at")
-frame_progress = 0.85759926
+frame_progress = 0.06869886
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1771207306]
