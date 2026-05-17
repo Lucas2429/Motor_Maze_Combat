@@ -176,3 +176,63 @@ position = Vector2(1928, 219)
 [node name="Players" type="Node2D" parent="." unique_id=917240552]
 
 [node name="Nametags" type="Node2D" parent="." unique_id=548572305]
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1363426416]
+scale = Vector2(1, 0.1)
+collision_layer = 17
+collision_mask = 17
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D3" unique_id=425293141]
+position = Vector2(581, 24)
+scale = Vector2(8.90625, 0.40625)
+texture = ExtResource("5_nqvq7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3" unique_id=580279540]
+position = Vector2(579.5, 22.5)
+shape = SubResource("RectangleShape2D_wjjqm")
+debug_color = Color(0.95305985, 3.85046e-07, 0.55797166, 0.41960785)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1401002497]
+position = Vector2(0, 600)
+scale = Vector2(1, 0.1)
+collision_layer = 17
+collision_mask = 17
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D" unique_id=1663152081]
+position = Vector2(581, 24)
+scale = Vector2(8.90625, 0.40625)
+texture = ExtResource("5_nqvq7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=454190149]
+position = Vector2(579.5, 22.5)
+shape = SubResource("RectangleShape2D_wjjqm")
+debug_color = Color(0.95305985, 3.85046e-07, 0.55797166, 0.41960785)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1028421874]
+position = Vector2(1100, 0)
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=315962983]
+position = Vector2(19.5, 318.5)
+scale = Vector2(0.1, 1)
+shape = SubResource("RectangleShape2D_nqvq7")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D4" unique_id=902863722]
+position = Vector2(19.999939, 330.00003)
+scale = Vector2(0.1, 5.156)
+texture = ExtResource("5_nqvq7")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=439210010]
+scale = Vector2(0.1, 1)
+collision_layer = 17
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=39565368]
+position = Vector2(19.5, 318.5)
+shape = SubResource("RectangleShape2D_nqvq7")
+
+[node name="Icon" type="Sprite2D" parent="StaticBody2D2" unique_id=378413177]
+position = Vector2(19.999939, 330.00003)
+scale = Vector2(0.4218738, 5.1562505)
+texture = ExtResource("5_nqvq7")

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bxgyb4dpdnw1k"]
+
+[ext_resource type="Script" uid="uid://dkvaerqo8u83w" path="res://scripts/rocket.gd" id="1_ncent"]
+[ext_resource type="Texture2D" uid="uid://bj4ixh2i88x6v" path="res://resources/All_Fire_Bullet_Pixel_16x16_00.png" id="2_ncent"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_021lq"]
+size = Vector2(15.714285, 11.428572)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_021lq"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncent"]
+atlas = ExtResource("2_ncent")
+region = Rect2(256, 240, 32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g7kt"]
+atlas = ExtResource("2_ncent")
+region = Rect2(288, 240, 32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33qri"]
+atlas = ExtResource("2_ncent")
+region = Rect2(320, 240, 32, 19)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6nu5"]
+atlas = ExtResource("2_ncent")
+region = Rect2(352, 240, 32, 19)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ie4at"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncent")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g7kt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33qri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6nu5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Rocket" type="Area2D" unique_id=593887549]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_ncent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1563554526]
+position = Vector2(-1.5, -4)
+scale = Vector2(0.7, 0.7)
+shape = SubResource("RectangleShape2D_021lq")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=43745207]
+replication_config = SubResource("SceneReplicationConfig_021lq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=504137459]
+rotation = -1.5707964
+sprite_frames = SubResource("SpriteFrames_ie4at")
+frame_progress = 0.54589343
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1771207306]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
