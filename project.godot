@@ -27,7 +27,8 @@ Lobby="*res://autoloads/lobby.tscn"
 
 [display]
 
-window/size/initial_position_type=0
+window/size/viewport_width=2176
+window/size/viewport_height=1224
 window/stretch/mode="canvas_items"
 
 [input]
