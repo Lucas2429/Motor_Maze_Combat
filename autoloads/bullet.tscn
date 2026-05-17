@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://cju13aqcgvqjl"]
 
-[ext_resource type="Script" uid="uid://bfiqtk2tpnqtw" path="res://autoloads/bullet.gd" id="1_021lq"]
+[ext_resource type="Script" uid="uid://bfiqtk2tpnqtw" path="res://scripts/bullet.gd" id="1_021lq"]
 [ext_resource type="Texture2D" uid="uid://bj4ixh2i88x6v" path="res://resources/All_Fire_Bullet_Pixel_16x16_00.png" id="2_021lq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_021lq"]
+size = Vector2(7.142857, 7.1428576)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_021lq"]
 properties/0/path = NodePath(".:position")
@@ -50,9 +51,12 @@ animations = [{
 }]
 
 [node name="Bullet" type="Area2D" unique_id=593887549]
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("1_021lq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1563554526]
+position = Vector2(1.5, -0.5000002)
 scale = Vector2(0.7, 0.7)
 shape = SubResource("RectangleShape2D_021lq")
 
@@ -62,6 +66,9 @@ replication_config = SubResource("SceneReplicationConfig_021lq")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=504137459]
 rotation = -1.5707964
 sprite_frames = SubResource("SpriteFrames_ie4at")
-frame_progress = 0.85759926
+frame_progress = 0.77526206
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1771207306]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

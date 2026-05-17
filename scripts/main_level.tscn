@@ -35,6 +35,8 @@ position = Vector2(892, 233)
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="." unique_id=1363426416]
 scale = Vector2(1, 0.1)
+collision_layer = 17
+collision_mask = 17
 
 [node name="Icon" type="Sprite2D" parent="StaticBody2D3" unique_id=425293141]
 position = Vector2(581, 24)
@@ -49,6 +51,8 @@ debug_color = Color(0.95305985, 3.85046e-07, 0.55797166, 0.41960785)
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1401002497]
 position = Vector2(0, 600)
 scale = Vector2(1, 0.1)
+collision_layer = 17
+collision_mask = 17
 
 [node name="Icon" type="Sprite2D" parent="StaticBody2D" unique_id=1663152081]
 position = Vector2(581, 24)
@@ -62,6 +66,8 @@ debug_color = Color(0.95305985, 3.85046e-07, 0.55797166, 0.41960785)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="." unique_id=1028421874]
 position = Vector2(1100, 0)
+collision_layer = 17
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4" unique_id=315962983]
 position = Vector2(19.5, 318.5)
@@ -75,6 +81,8 @@ texture = ExtResource("5_nqvq7")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=439210010]
 scale = Vector2(0.1, 1)
+collision_layer = 17
+collision_mask = 17
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=39565368]
 position = Vector2(19.5, 318.5)

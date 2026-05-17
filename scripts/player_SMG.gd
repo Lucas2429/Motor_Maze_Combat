@@ -10,17 +10,32 @@ extends BasicPlayer
 
 var booleano: bool=true
 
+func spawn_bullet(data):
+	var b = bullet_scene.instantiate()
+
+	b.player_id = data.player_id
+	b.global_position  = data.marker
+	b.rotation_degrees = data.rotation
+
+	return b
+
 func shoot() -> void:
 	cooldown_shoot=0.1
 	booleano=booleano==false
 	var b = bullet_scene.instantiate()
-	multiplayer_spawner.add_child(b, true)
+	b.player_id=player_id
 	var play: AnimationNodeStateMachinePlayback
+	var marker: Marker2D
 	if booleano:
-		b.transform = marker_2d.global_transform
+		marker = marker_2d
 		play=playback
 	else:
-		b.transform = marker_2d_2.global_transform
+		marker = marker_2d_2
 		play=playback_2
 	play.travel("shooting")
 	b.rotation=rotation
+	multiplayer_spawner.spawn({
+		"player_id": player_id,
+		"marker": marker.global_position,
+		"rotation": global_rotation_degrees
+	})
