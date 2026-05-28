@@ -1,6 +1,8 @@
 class_name BasicPlayer
 extends CharacterBody2D
 
+signal player_died(id)
+
 @export var max_angle=999999999
 @export var angular_acceleration=3
 
@@ -13,6 +15,7 @@ extends CharacterBody2D
 @export var hp=100
 
 var player_id="-1"
+var player_name=""
 
 @export var max_speed=800
 @export var acceleration=1000
@@ -30,6 +33,8 @@ func _ready():
 	health_bar.max_value = hp
 	health_bar.value = hp
 	multiplayer_spawner.spawn_function = spawn_bullet
+	player_id="-1"
+	player_name=""
 	
 @rpc("authority","call_local")
 func shoot() -> void:
@@ -41,6 +46,7 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 		if area.player_id!=player_id:
 			hp-=area.damage
 			if hp<=0:
+				player_died.emit(int(player_id))
 				queue_free()
 			health_bar.value = hp
 
@@ -66,5 +72,7 @@ func _physics_process(delta: float) -> void:
 func setup(data: Statics.PlayerData) -> void:
 	player_id = str(data.id)
 	label.text = data.name
+	player_name = data.name
+	Debug.log(data.vote)
 	set_multiplayer_authority(data.id, false)
 	multiplayer_synchronizer.set_multiplayer_authority(data.id, false)

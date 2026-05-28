@@ -4,6 +4,7 @@ signal players_updated
 signal player_updated(id)
 signal vote_updated(id)
 signal player_index_received()
+signal player_died(id)
 
 @export var multiplayer_test = false
 @export var use_roles = true
