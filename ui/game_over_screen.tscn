@@ -44,6 +44,7 @@ theme_override_constants/separation = 80
 
 [node name="FirstPlace" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1369768237]
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("1_dcpkc")
 theme_override_font_sizes/font_size = 72
 text = "1st Place"
@@ -60,7 +61,7 @@ horizontal_alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_dcpkc")
 theme_override_font_sizes/font_size = 72
-text = "Third Place"
+text = "3rd Place"
 horizontal_alignment = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=903596333]
@@ -83,20 +84,20 @@ theme_override_fonts/font = ExtResource("1_dcpkc")
 theme_override_font_sizes/font_size = 88
 text = "  Play again  "
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1990425695]
+[node name="VotesBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1990425695]
 layout_mode = 2
 
-[node name="Vote1" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2" unique_id=176579438]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("1_dcpkc")
-theme_override_font_sizes/font_size = 72
-
-[node name="Vote2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2" unique_id=1737011399]
+[node name="Vote1" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox" unique_id=176579438]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_dcpkc")
 theme_override_font_sizes/font_size = 72
 
-[node name="Vote3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2" unique_id=1206808919]
+[node name="Vote2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox" unique_id=1737011399]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 72
+
+[node name="Vote3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox" unique_id=1206808919]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_dcpkc")
 theme_override_font_sizes/font_size = 72

@@ -10,12 +10,15 @@ var player_votes_by_id: Array[int] = []
 @onready var third_place: Label = $PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ThirdPlace
 @onready var play_again_button: Button = $PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/PlayAgainButton
 
-@onready var vote_1: Label = $PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2/Vote1
-@onready var vote_2: Label = $PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2/Vote2
-@onready var vote_3: Label = $PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer2/Vote3
+@onready var vote_1: Label = $PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox/Vote1
+@onready var vote_2: Label = $PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox/Vote2
+@onready var vote_3: Label = $PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox/Vote3
+@onready var votes_box: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox
+
 
 func _ready() -> void:
 	visible = false
+	votes_box.visible = false
 	Game.vote_updated.connect(_on_vote_updated)
 
 func _on_vote_updated(id: int) -> void:
@@ -23,8 +26,12 @@ func _on_vote_updated(id: int) -> void:
 	if player.vote:
 		if not player_votes_by_id.has(player.id):
 			player_votes_by_id.append(player.id)
+			if player_votes_by_id.size() == 1:
+				votes_box.visible = true
 	else:
 		player_votes_by_id.erase(player.id)
+		if player_votes_by_id.size() == 0:
+				votes_box.visible = false
 	
 	update_votes()
 	
