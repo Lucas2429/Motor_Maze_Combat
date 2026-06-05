@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://bb0fk8e3mv7v"]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" unique_id=381848091]
+spawn_path = NodePath(".")

@@ -1,0 +1,105 @@
+[gd_scene format=3 uid="uid://ckkbhacofdlyx"]
+
+[ext_resource type="FontFile" uid="uid://dcmda6usqnvyx" path="res://resources/fonts/Fortzilla_Font_1_14/TrueType (.ttf)/Fortzilla-Regular.ttf" id="1_dcpkc"]
+[ext_resource type="Script" uid="uid://c344ftb6yxbyn" path="res://scripts/game_over_screen.gd" id="1_pmiq4"]
+
+[node name="GameOverScreen" type="Control" unique_id=1973076604]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pmiq4")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=842935207]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=842400097]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1272711]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="GameOver" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1434652238]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 144
+text = "Game Over"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=356256286]
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="FirstPlace" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1369768237]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 72
+text = "1st Place"
+horizontal_alignment = 1
+
+[node name="SecondPlace" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1098076674]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 72
+text = "2nd Place"
+horizontal_alignment = 1
+
+[node name="ThirdPlace" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" unique_id=1670510761]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 72
+text = "3rd Place"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=903596333]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer" unique_id=692433315]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1533544580]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="PlayAgainButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer" unique_id=738074393]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 88
+text = "  Play again  "
+
+[node name="VotesBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1990425695]
+layout_mode = 2
+
+[node name="Vote1" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox" unique_id=176579438]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 72
+
+[node name="Vote2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox" unique_id=1737011399]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 72
+
+[node name="Vote3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox" unique_id=1206808919]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 72
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
