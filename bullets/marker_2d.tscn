@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://ckrtbgbp15bpp"]
+
+[ext_resource type="Texture2D" uid="uid://bj4ixh2i88x6v" path="res://resources/All_Fire_Bullet_Pixel_16x16_00.png" id="1_6eu3f"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qciwf"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7iq8f"]
+animation = &"shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j6e4h"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kgonf"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3x04c"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ed31t"]
+states/Start/position = Vector2(108, 80)
+states/idle/node = SubResource("AnimationNodeAnimation_qciwf")
+states/idle/position = Vector2(285.2, 46.4)
+states/shooting/node = SubResource("AnimationNodeAnimation_7iq8f")
+states/shooting/position = Vector2(410, 106.4)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_j6e4h"), "idle", "shooting", SubResource("AnimationNodeStateMachineTransition_kgonf"), "shooting", "idle", SubResource("AnimationNodeStateMachineTransition_3x04c")]
+
+[sub_resource type="Animation" id="Animation_2c2ej"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_fpwut"]
+resource_name = "idle"
+
+[sub_resource type="Animation" id="Animation_mdvqj"]
+resource_name = "shooting"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666668, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hfo8u"]
+_data = {
+&"RESET": SubResource("Animation_2c2ej"),
+&"idle": SubResource("Animation_fpwut"),
+&"shooting": SubResource("Animation_mdvqj")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uxtx"]
+atlas = ExtResource("1_6eu3f")
+region = Rect2(211, 350, 47, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f77ml"]
+atlas = ExtResource("1_6eu3f")
+region = Rect2(258, 350, 47, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdlda"]
+atlas = ExtResource("1_6eu3f")
+region = Rect2(305, 350, 47, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qvlw8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uxtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f77ml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdlda")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Marker2D" type="Marker2D" unique_id=1974895909]
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=2100044542]
+tree_root = SubResource("AnimationNodeStateMachine_ed31t")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1751118485]
+libraries/ = SubResource("AnimationLibrary_hfo8u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1202484620]
+position = Vector2(1, -3)
+rotation = -4.712389
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_qvlw8")
+speed_scale = 2.0

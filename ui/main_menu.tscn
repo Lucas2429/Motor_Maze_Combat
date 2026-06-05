@@ -90,6 +90,7 @@ grow_vertical = 2
 [node name="Label" type="Label" parent="MarginContainer3" unique_id=950934533]
 layout_mode = 2
 theme_type_variation = &"Title"
+text = "Motor Maze Combat"
 
 [node name="Photo20260405191318" type="Sprite2D" parent="." unique_id=431992249]
 position = Vector2(601, 87.000015)

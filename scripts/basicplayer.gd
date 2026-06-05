@@ -9,7 +9,8 @@ signal player_died(id)
 @onready var health_bar: ProgressBar = $HealthBar
 @onready var health_bar_position= Vector2(-30.0,-68.0)
 
-@export var cooldown_shoot:float
+@export var cooldown_shoot: float
+var cooldown_shoot_delta: float = cooldown_shoot
 @onready var cooldown_max:float=cooldown_shoot
 
 @export var hp=100
@@ -25,6 +26,7 @@ var player_name=""
 @onready var label_position= Vector2(-21,-91)
 @onready var multiplayer_synchronizer: MultiplayerSynchronizer = $MultiplayerSynchronizer
 @onready var multiplayer_spawner: MultiplayerSpawner = $MultiplayerSpawner
+@onready var hurtbox: Area2D = $Hurtbox
 
 func spawn_bullet(data):
 	pass
@@ -35,8 +37,10 @@ func _ready():
 	multiplayer_spawner.spawn_function = spawn_bullet
 	player_id="-1"
 	player_name=""
+	if multiplayer.is_server():
+		hurtbox.area_entered.connect(_on_hurtbox_area_entered)
 	
-@rpc("authority","call_local")
+@rpc("authority","call_local", "reliable")
 func shoot() -> void:
 	return
 	
@@ -44,12 +48,16 @@ func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if "player_id" in area and "damage" in area:
 		print(area.player_id)
 		if area.player_id!=player_id:
-			hp-=area.damage
-			if hp<=0:
-				player_died.emit(int(player_id))
-				queue_free()
-			health_bar.value = hp
+			take_damage.rpc(area.damage)
 
+@rpc("any_peer", "reliable", "call_local")
+func take_damage(value: int) -> void:
+	hp-=value
+	if hp<=0:
+		player_died.emit(int(player_id))
+		queue_free()
+	health_bar.value = hp
+			
 func _process(delta: float) -> void:
 	label.position=position+label_position
 	health_bar.position=position+health_bar_position
@@ -64,9 +72,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = speed*cos(rotation) * move_direction
 		velocity.x = speed*sin(-rotation) * move_direction
 		
-		cooldown_shoot-=delta
-		if (Input.is_action_pressed("shoot")) and cooldown_shoot<0:
-			shoot.rpc()
+		cooldown_shoot_delta-=delta
+		if (Input.is_action_pressed("shoot")) and cooldown_shoot_delta<0:
+			cooldown_shoot_delta = cooldown_shoot
+			shoot.rpc_id(1)
 		move_and_slide()
 	
 func setup(data: Statics.PlayerData) -> void:

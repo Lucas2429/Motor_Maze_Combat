@@ -4,6 +4,11 @@ var speed = -750
 @export var player_id="-1"
 var damage=10
 
+func _ready() -> void:
+	if multiplayer.is_server():
+		body_entered.connect(_on_body_entered)
+		area_entered.connect(_on_area_entered)
+
 func _physics_process(delta):
 	position += transform.y * speed * delta
 

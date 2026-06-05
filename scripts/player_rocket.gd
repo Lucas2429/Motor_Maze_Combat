@@ -17,7 +17,6 @@ func spawn_bullet(data):
 	return b
 	
 func shoot() -> void:
-	cooldown_shoot=1
 	booleano=booleano==false
 	var b = bullet_scene.instantiate()
 	b.player_id=player_id

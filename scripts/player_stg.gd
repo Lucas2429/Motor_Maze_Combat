@@ -20,7 +20,6 @@ func spawn_bullet(data):
 
 	return b
 func shoot() -> void:
-	cooldown_shoot=0.5
 	booleano=booleano==false
 
 	var marker:Marker2D
