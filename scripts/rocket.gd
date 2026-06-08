@@ -2,7 +2,9 @@ extends Area2D
 
 var speed = -750
 @export var player_id="-1"
-var damage=50
+var damage=20
+@export var explosion_scene: PackedScene
+@onready var multiplayer_spawner: MultiplayerSpawner = $MultiplayerSpawner
 
 func _ready() -> void:
 	if multiplayer.is_server():
@@ -15,11 +17,25 @@ func _physics_process(delta):
 func interact(area: Area2D)-> void:
 	pass
 
-func terminate()-> void:
+@rpc("call_local")
+func spawn_explosion(pos):
+	var explosion = explosion_scene.instantiate()
+	explosion.global_position = global_position
+	get_tree().current_scene.add_child(explosion)
+
+var exploded := false
+
+func terminate() -> void:
+	if exploded:
+		return
+
+	exploded = true
+
+	spawn_explosion.rpc(global_position)
 	queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
 	area.interact(self)
 
 func _on_body_entered(body: Node2D) -> void:
-	queue_free()
+	terminate()

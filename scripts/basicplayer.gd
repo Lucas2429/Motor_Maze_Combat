@@ -46,13 +46,12 @@ func shoot() -> void:
 	
 func _on_hurtbox_area_entered(area: Area2D) -> void:
 	if "player_id" in area and "damage" in area:
-		print(area.player_id)
 		if area.player_id!=player_id:
 			take_damage.rpc(area.damage)
 
 @rpc("any_peer", "reliable", "call_local")
 func take_damage(value: int) -> void:
-	hp-=value
+	hp -= value
 	if hp<=0:
 		player_died.emit(int(player_id))
 		queue_free()
