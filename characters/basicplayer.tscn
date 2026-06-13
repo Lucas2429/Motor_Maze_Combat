@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://cuecxe02w1qj7" path="res://resources/BlueStrip.png" id="2_6nh5l"]
 [ext_resource type="PackedScene" uid="uid://cju13aqcgvqjl" path="res://bullets/bullet.tscn" id="2_53le0"]
 [ext_resource type="Script" uid="uid://7rfxlg8f5i4b" path="res://scripts/hurtbox.gd" id="4_jk0uu"]
-[ext_resource type="PackedScene" uid="uid://dp3nrb0dx1xwy" path="res://characters/trail.tscn" id="5_tcd41"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6nh5l"]
 size = Vector2(13.666667, 6)
@@ -16,12 +15,6 @@ properties/0/replication_mode = 1
 properties/1/path = NodePath(".:rotation")
 properties/1/spawn = true
 properties/1/replication_mode = 1
-properties/2/path = NodePath("TrailLeft/Trail:points")
-properties/2/spawn = true
-properties/2/replication_mode = 1
-properties/3/path = NodePath("TrailRight/Trail:points")
-properties/3/spawn = true
-properties/3/replication_mode = 1
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53le0"]
 size = Vector2(43, 78)
@@ -34,12 +27,12 @@ motion_mode = 1
 script = ExtResource("1_6nh5l")
 bullet_scene = ExtResource("2_53le0")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1296237118]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1296237118]
 rotation = -1.5707964
 scale = Vector2(1.5330429, 1.5621595)
 texture = ExtResource("2_6nh5l")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1209829879]
+[node name="Collision" type="CollisionShape2D" parent="." unique_id=1209829879]
 rotation = -1.5707964
 scale = Vector2(6, 6)
 shape = SubResource("RectangleShape2D_6nh5l")
@@ -63,7 +56,7 @@ collision_layer = 16
 collision_mask = 16
 script = ExtResource("4_jk0uu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1376125512]
+[node name="HurtboxCollision" type="CollisionShape2D" parent="Hurtbox" unique_id=1376125512]
 position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_53le0")
 
@@ -75,13 +68,3 @@ offset_right = 58.571426
 offset_bottom = -41.000008
 scale = Vector2(0.7, 0.7)
 theme_override_styles/fill = SubResource("StyleBoxFlat_jk0uu")
-
-[node name="TrailLeft" type="Marker2D" parent="." unique_id=444148760]
-position = Vector2(-21, 31)
-
-[node name="Trail" parent="TrailLeft" unique_id=904614084 instance=ExtResource("5_tcd41")]
-
-[node name="TrailRight" type="Marker2D" parent="." unique_id=429924537]
-position = Vector2(22, 31)
-
-[node name="Trail" parent="TrailRight" unique_id=819492605 instance=ExtResource("5_tcd41")]
