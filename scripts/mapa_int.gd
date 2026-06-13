@@ -3,10 +3,12 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Game.vote_updated.connect(_on_vote_updated)
+	Game.vote_updated.connect(func (id): check())
 	Game.set_current_player_vote(true)
 	
-func _on_vote_updated() -> void:
+
+	
+func check() -> void:
 	if not is_multiplayer_authority():
 		return
 	if Game.all_voted():

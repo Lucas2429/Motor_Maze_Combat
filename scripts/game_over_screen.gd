@@ -18,8 +18,8 @@ var player_votes_by_id: Array[int] = []
 func _ready() -> void:
 	visible = false
 	votes_box.visible = false
-	Game.vote_updated.connect(_on_vote_updated)
-	play_again_button.pressed.connect(_on_play_again_button_pressed)
+	#Game.vote_updated.connect(_on_vote_updated)
+	#play_again_button.pressed.connect(_on_play_again_button_pressed)
 
 func _on_play_again_button_pressed() -> void:
 	Game.set_current_player_vote(not Game.get_current_player().vote)
@@ -82,3 +82,5 @@ func update_placements(id: int) -> void:
 				game_over.modulate = Color.RED
 				
 			visible = true
+			await get_tree().create_timer(3.0).timeout
+			get_tree().change_scene_to_file("res://Mapas/mapa_int.tscn")

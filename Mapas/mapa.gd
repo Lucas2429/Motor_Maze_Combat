@@ -24,6 +24,8 @@ func solicitar_mapa_al_servidor() -> void:
 	Debug.log("a")
 	var id_del_cliente = multiplayer.get_remote_sender_id()
 	
+	while indice_mapa_elegido==-1:
+		pass
 	rpc_id(id_del_cliente, "cargar_mapa_por_indice", indice_mapa_elegido)
 
 @rpc("authority", "call_local", "reliable")
