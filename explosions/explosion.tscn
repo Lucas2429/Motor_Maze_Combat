@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c7q80rryggfkx"]
 
 [ext_resource type="Script" uid="uid://bmlnr6uqtr7jv" path="res://scripts/explosion.gd" id="1_popj5"]
-[ext_resource type="Texture2D" uid="uid://coxsswfwlcpt6" path="res://resources/explosion/0001.png" id="2_s3j2d"]
 [ext_resource type="Texture2D" uid="uid://yb4wkc8ynlbj" path="res://resources/explosion/0002.png" id="3_rcqak"]
 [ext_resource type="Texture2D" uid="uid://buqeenkm8ersj" path="res://resources/explosion/0003.png" id="4_1i1g7"]
 [ext_resource type="Texture2D" uid="uid://uv2yoj75fn86" path="res://resources/explosion/0004.png" id="5_137mn"]
@@ -33,9 +32,6 @@ radius = 16.03122
 [sub_resource type="SpriteFrames" id="SpriteFrames_kvw7p"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_s3j2d")
-}, {
 "duration": 1.0,
 "texture": ExtResource("3_rcqak")
 }, {
@@ -136,7 +132,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_r4hf5"]
 resource_name = "new_animation"
-length = 0.76666665
+length = 0.6333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -144,10 +140,10 @@ tracks/0/path = NodePath("AnimatedSprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(5.9604645e-08, 0.03333336, 0.06666672, 0.1, 0.13333334, 0.16666667, 0.20000002, 0.23333338, 0.2666666, 0.29999992, 0.33333334, 0.38360402, 0.43333337, 0.46666667, 0.49999997, 0.5333333, 0.5666667, 0.6, 0.6333333, 0.66666675),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.03333334, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.49999997, 0.5333333, 0.5666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+"values": [2, 3, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -168,7 +164,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.36666667, 0.7),
+"times": PackedFloat32Array(0.26666668, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -186,7 +182,7 @@ _data = {
 }
 
 [node name="Explosion" type="Area2D" unique_id=1257085258]
-scale = Vector2(3, 3)
+scale = Vector2(6, 6)
 collision_layer = 17
 collision_mask = 17
 script = ExtResource("1_popj5")

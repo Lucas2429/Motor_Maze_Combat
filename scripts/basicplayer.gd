@@ -17,6 +17,7 @@ var cooldown_shoot_delta: float = cooldown_shoot
 
 var player_id="-1"
 var player_name=""
+@export var explosion_scene: PackedScene
 
 @export var max_speed=800
 @export var acceleration=1000
@@ -30,6 +31,16 @@ var player_name=""
 
 func spawn_bullet(data):
 	pass
+
+@rpc("call_local")
+func spawn_explosion(pos):
+	var explosion = explosion_scene.instantiate()
+	explosion.global_position = global_position
+	get_tree().current_scene.add_child(explosion)
+
+var exploded := false
+
+
 
 func _ready():
 	health_bar.max_value = hp
@@ -54,6 +65,12 @@ func take_damage(value: int) -> void:
 	hp -= value
 	if hp<=0:
 		player_died.emit(int(player_id))
+		if exploded:
+			return
+
+		exploded = true
+
+		spawn_explosion.rpc(global_position)
 		queue_free()
 	health_bar.value = hp
 			

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bp5f3aetf25lh" path="res://scripts/basicplayer.gd" id="1_6nh5l"]
 [ext_resource type="Texture2D" uid="uid://cuecxe02w1qj7" path="res://resources/BlueStrip.png" id="2_6nh5l"]
 [ext_resource type="PackedScene" uid="uid://cju13aqcgvqjl" path="res://bullets/bullet.tscn" id="2_53le0"]
+[ext_resource type="PackedScene" uid="uid://c7q80rryggfkx" path="res://explosions/explosion.tscn" id="2_v853s"]
 [ext_resource type="Script" uid="uid://7rfxlg8f5i4b" path="res://scripts/hurtbox.gd" id="4_jk0uu"]
 [ext_resource type="PackedScene" uid="uid://dp3nrb0dx1xwy" path="res://characters/trail.tscn" id="5_tcd41"]
 
@@ -32,6 +33,7 @@ bg_color = Color(0, 1, 0, 1)
 [node name="player" type="CharacterBody2D" unique_id=838864319]
 motion_mode = 1
 script = ExtResource("1_6nh5l")
+explosion_scene = ExtResource("2_v853s")
 bullet_scene = ExtResource("2_53le0")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1296237118]
