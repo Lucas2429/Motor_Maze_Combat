@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bxgyb4dpdnw1k"]
 
 [ext_resource type="Script" uid="uid://dkvaerqo8u83w" path="res://scripts/rocket.gd" id="1_ncent"]
+[ext_resource type="PackedScene" uid="uid://c7q80rryggfkx" path="res://explosions/explosion.tscn" id="2_iyt01"]
 [ext_resource type="Texture2D" uid="uid://bj4ixh2i88x6v" path="res://resources/All_Fire_Bullet_Pixel_16x16_00.png" id="2_ncent"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_021lq"]
@@ -54,6 +55,7 @@ animations = [{
 collision_layer = 17
 collision_mask = 17
 script = ExtResource("1_ncent")
+explosion_scene = ExtResource("2_iyt01")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1563554526]
 position = Vector2(-1.5, -4)

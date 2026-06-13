@@ -181,3 +181,6 @@ position = Vector2(1928, 219)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=776515850]
 
 [node name="GameOverScreen" parent="CanvasLayer" unique_id=1973076604 instance=ExtResource("7_bvtlw")]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=713890563]
+spawn_path = NodePath(".")
