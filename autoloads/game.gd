@@ -4,7 +4,6 @@ signal players_updated
 signal player_updated(id)
 signal vote_updated(id)
 signal player_index_received()
-signal player_died(id)
 
 @export var multiplayer_test = false
 @export var use_roles = true
@@ -130,6 +129,11 @@ func reset_votes() -> void:
 	for player in players:
 		set_player_vote.rpc(player.id, false)
 
+func all_voted() -> bool:
+	var result = true
+	for player in players:
+		result = result && player.vote
+	return result
 
 func is_online() -> bool:
 	return not multiplayer.multiplayer_peer is OfflineMultiplayerPeer and \

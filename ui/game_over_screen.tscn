@@ -101,5 +101,3 @@ theme_override_font_sizes/font_size = 72
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_dcpkc")
 theme_override_font_sizes/font_size = 72
-
-[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/PlayAgainButton" to="." method="_on_play_again_button_pressed"]
