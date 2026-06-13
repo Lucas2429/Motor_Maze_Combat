@@ -20,6 +20,7 @@ func _ready() -> void:
 		else:
 			player_inst=player_scene_rocketlauncher.instantiate()
 		
+		player_inst.name = str(player_data.id)
 		players.add_child(player_inst, true)
 		var spawn_point = spawn_points.get_child(i)
 		player_inst.global_position = spawn_point.global_position

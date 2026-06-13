@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://mxeul4byljsc"]
+
+[ext_resource type="Script" uid="uid://c1hljs4q2r5a6" path="res://scripts/mapa_int.gd" id="1_brtst"]
+
+[node name="MapaInt" type="Node2D" unique_id=697059400]
+script = ExtResource("1_brtst")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1285546470]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1112275354]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

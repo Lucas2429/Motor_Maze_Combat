@@ -28,6 +28,9 @@ var player_name=""
 @onready var multiplayer_synchronizer: MultiplayerSynchronizer = $MultiplayerSynchronizer
 @onready var multiplayer_spawner: MultiplayerSpawner = $MultiplayerSpawner
 @onready var hurtbox: Area2D = $Hurtbox
+@onready var sprite: Sprite2D = $Sprite
+@onready var collision: CollisionShape2D = $Collision
+@onready var hurtbox_collision: CollisionShape2D = $Hurtbox/HurtboxCollision
 
 func spawn_bullet(data):
 	pass
@@ -71,9 +74,17 @@ func take_damage(value: int) -> void:
 		exploded = true
 
 		spawn_explosion.rpc(global_position)
-		queue_free()
+		if multiplayer.is_server():
+			destroy_player.rpc()
 	health_bar.value = hp
 			
+func disable_player():
+	return
+
+@rpc("any_peer", "call_local", "reliable")
+func destroy_player() -> void:
+	queue_free()
+
 func _process(delta: float) -> void:
 	label.position=position+label_position
 	health_bar.position=position+health_bar_position

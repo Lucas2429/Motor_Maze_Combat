@@ -4,6 +4,7 @@ extends BasicPlayer
 @onready var marker_2d: Marker2D = $Marker2D
 @onready var animation_tree: AnimationTree = $Marker2D/AnimationTree
 @onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
+@onready var mp_5: Sprite2D = $Mp5
 
 var booleano: bool=true
 
@@ -29,3 +30,13 @@ func shoot() -> void:
 		"marker": marker_2d.global_position,
 		"rotation": global_rotation_degrees
 	})
+
+func disable_player():
+	label.text = ""
+	sprite.visible = false
+	collision.disabled = true
+	hurtbox_collision.disabled = true
+	hurtbox.set_collision_layer_value(5, false)
+	hurtbox.set_collision_mask_value(5, false)
+	health_bar.visible = false
+	mp_5.visible = false
