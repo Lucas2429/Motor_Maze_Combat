@@ -30,3 +30,4 @@ func _ready() -> void:
 
 func _on_player_died(id: int) -> void:
 	game_over_screen.update_placements(id)
+	

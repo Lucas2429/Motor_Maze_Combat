@@ -64,19 +64,19 @@ theme_override_font_sizes/font_size = 72
 text = "3rd Place"
 horizontal_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=903596333]
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=851645800]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer" unique_id=692433315]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer" unique_id=1677211103]
 layout_mode = 2
 theme_override_constants/separation = 200
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1533544580]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" unique_id=429455879]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="PlayAgainButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer" unique_id=738074393]
+[node name="PlayAgainButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer" unique_id=299307811]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -84,20 +84,111 @@ theme_override_fonts/font = ExtResource("1_dcpkc")
 theme_override_font_sizes/font_size = 88
 text = "  Play again  "
 
-[node name="VotesBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1990425695]
+[node name="VotesBox" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer" unique_id=1047723738]
 layout_mode = 2
 
-[node name="Vote1" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox" unique_id=176579438]
+[node name="Vote1" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox" unique_id=1300115765]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_dcpkc")
 theme_override_font_sizes/font_size = 72
 
-[node name="Vote2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox" unique_id=1737011399]
+[node name="Vote2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox" unique_id=698427254]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_dcpkc")
 theme_override_font_sizes/font_size = 72
 
-[node name="Vote3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox" unique_id=1206808919]
+[node name="Vote3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox" unique_id=1103898365]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_dcpkc")
 theme_override_font_sizes/font_size = 72
+
+[node name="MapSelectionContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=903596333]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer" unique_id=692433315]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Map1VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer" unique_id=1533544580]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Map1" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map1VBoxContainer" unique_id=453611441]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 60
+text = "Map 1"
+
+[node name="Map1SelectButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map1VBoxContainer" unique_id=738074393]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 72
+text = "  Vote  
+"
+autowrap_trim_flags = 0
+
+[node name="Map1VoteCount" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map1VBoxContainer" unique_id=1068777460]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 60
+text = "0"
+
+[node name="Map2VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer" unique_id=1831415199]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Map2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map2VBoxContainer2" unique_id=928662344]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 60
+text = "Map 2"
+
+[node name="Map2SelectButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map2VBoxContainer2" unique_id=1133778615]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 72
+text = "  Vote  "
+
+[node name="Map2VoteCount" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map2VBoxContainer2" unique_id=30246618]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 60
+text = "0"
+
+[node name="Map3VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer" unique_id=1738692350]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Map3" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map3VBoxContainer3" unique_id=1812657957]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 60
+text = "Map 3"
+
+[node name="Map3SelectButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map3VBoxContainer3" unique_id=1833381044]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 72
+text = "  Vote  "
+
+[node name="Map3VoteCount" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map3VBoxContainer3" unique_id=2030387466]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_dcpkc")
+theme_override_font_sizes/font_size = 60
+text = "0"

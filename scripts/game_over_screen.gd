@@ -3,31 +3,46 @@ extends Control
 
 var placements: Array[int] = []
 var player_votes_by_id: Array[int] = []
+var map_votes: Array[int] = []
 
 @onready var game_over: Label = $PanelContainer/MarginContainer/VBoxContainer/GameOver
 @onready var first_place: Label = $PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/FirstPlace
 @onready var second_place: Label = $PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/SecondPlace
 @onready var third_place: Label = $PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/ThirdPlace
 @onready var play_again_button: Button = $PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VBoxContainer/PlayAgainButton
+@onready var play_again_container: CenterContainer = $PanelContainer/MarginContainer/VBoxContainer/CenterContainer
 
 @onready var vote_1: Label = $PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox/Vote1
 @onready var vote_2: Label = $PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox/Vote2
 @onready var vote_3: Label = $PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox/Vote3
 @onready var votes_box: VBoxContainer = $PanelContainer/MarginContainer/VBoxContainer/CenterContainer/HBoxContainer/VotesBox
 
+@onready var map_selection_container: CenterContainer = $PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer
+@onready var map_1: Label = $PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map1VBoxContainer/Map1
+@onready var map_1_select_button: Button = $PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map1VBoxContainer/Map1SelectButton
+@onready var map_1_vote_count: Label = $PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map1VBoxContainer/Map1VoteCount
+
+@onready var map_2: Label = $PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map2VBoxContainer2/Map2
+@onready var map_2_select_button: Button = $PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map2VBoxContainer2/Map2SelectButton
+@onready var map_2_vote_count: Label = $PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map2VBoxContainer2/Map2VoteCount
+
+@onready var map_3: Label = $PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map3VBoxContainer3/Map3
+@onready var map_3_select_button: Button = $PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map3VBoxContainer3/Map3SelectButton
+@onready var map_3_vote_count: Label = $PanelContainer/MarginContainer/VBoxContainer/MapSelectionContainer/HBoxContainer/Map3VBoxContainer3/Map3VoteCount
+
 func _ready() -> void:
 	visible = false
 	votes_box.visible = false
-	#Game.vote_updated.connect(_on_vote_updated)
-	#play_again_button.pressed.connect(_on_play_again_button_pressed)
-
+	map_selection_container.visible = false
+	Game.vote_updated.connect(_on_vote_updated)
+	play_again_button.pressed.connect(_on_play_again_button_pressed)
+	
 func _on_play_again_button_pressed() -> void:
 	Game.set_current_player_vote(not Game.get_current_player().vote)
 	if Game.get_current_player().vote:
 		play_again_button.text = "Cancel"
 	else:
 		play_again_button.text = "Play Again"
-	Debug.log(Game.get_current_player().vote)
 	
 func _on_vote_updated(id: int) -> void:
 	var player = Game.get_player(id)
@@ -43,29 +58,30 @@ func _on_vote_updated(id: int) -> void:
 	update_votes_text()
 	
 	if Game.all_voted():
+		Debug.log("All players voted: over")
 		await get_tree().create_timer(3.0).timeout
-		get_tree().change_scene_to_file("res://Mapas/mapa_int.tscn")
-
+		Game.reset_votes()
+		get_tree().change_scene_to_file("res://Mapas/map_select.tscn")
+		
 func update_votes_text() -> void:
 	var votes = [vote_1, vote_2, vote_3]
 	for i in votes.size():
 		votes[i].text = ""
 	
-	Debug.log(player_votes_by_id.size())
 	for i in player_votes_by_id.size():
 		var player = Game.get_player(player_votes_by_id[i])
 		if player:
 			votes[i].text = player.name
-
+		
 func update_placements(id: int) -> void:
 	if not placements.has(id):
 		placements.append(id)
 		var player = Game.get_player(id)
 		if placements.size() == 1:
-			Debug.log("tercer lugar:" + player.name)
+			Debug.log("tercer lugar: " + player.name)
 			third_place.text = "3rd Place: " + player.name
 		elif placements.size() == 2:
-			Debug.log("segundo lugar:" + player.name)
+			Debug.log("segundo lugar: " + player.name)
 			second_place.text = "2nd Place: " + player.name
 			var p_id
 			for p in Game.players:
@@ -82,5 +98,3 @@ func update_placements(id: int) -> void:
 				game_over.modulate = Color.RED
 				
 			visible = true
-			await get_tree().create_timer(3.0).timeout
-			get_tree().change_scene_to_file("res://Mapas/mapa_int.tscn")
