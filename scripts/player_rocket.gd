@@ -5,6 +5,7 @@ extends BasicPlayer
 @onready var animation_tree: AnimationTree = $Marker2D/AnimationTree
 @onready var playback: AnimationNodeStateMachinePlayback = animation_tree["parameters/playback"]
 @onready var mp_5: Sprite2D = $Mp5
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 var booleano: bool=true
 
@@ -18,6 +19,7 @@ func spawn_bullet(data):
 	return b
 	
 func shoot() -> void:
+	audio_stream_player.play()
 	booleano=booleano==false
 	var b = bullet_scene.instantiate()
 	b.player_id=player_id

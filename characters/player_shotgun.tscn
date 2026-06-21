@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dv1vqx5k2ip87" path="res://scripts/player_stg.gd" id="2_dob24"]
 [ext_resource type="Texture2D" uid="uid://255j5qtuw5t2" path="res://resources/SPAS-12.png" id="3_v84cs"]
 [ext_resource type="PackedScene" uid="uid://ckrtbgbp15bpp" path="res://bullets/marker_2d.tscn" id="4_dob24"]
+[ext_resource type="AudioStream" uid="uid://3v8s2jgq04to" path="res://sfx/shotgun.wav" id="5_33ps6"]
 
 [node name="player" unique_id=838864319 instance=ExtResource("1_v84cs")]
 script = ExtResource("2_dob24")
@@ -28,3 +29,6 @@ position = Vector2(-32, -47)
 
 [node name="Marker2D" parent="." index="8" unique_id=1998168652 instance=ExtResource("4_dob24")]
 position = Vector2(32, -46)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="11" unique_id=859283361]
+stream = ExtResource("5_33ps6")

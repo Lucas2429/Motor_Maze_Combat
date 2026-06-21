@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c1bllm6oc2yv3" path="res://resources/Thick Bazooka - M20 [192x32].png" id="3_23ai5"]
 [ext_resource type="PackedScene" uid="uid://bxgyb4dpdnw1k" path="res://bullets/rocket.tscn" id="3_nst2a"]
 [ext_resource type="PackedScene" uid="uid://ckrtbgbp15bpp" path="res://bullets/marker_2d.tscn" id="4_ca3qv"]
+[ext_resource type="AudioStream" uid="uid://dujfwot56qc3m" path="res://sfx/Rocket_Shot-001.wav" id="6_stur5"]
 
 [node name="player" unique_id=838864319 instance=ExtResource("1_b5yoq")]
 script = ExtResource("2_xgt5q")
@@ -20,3 +21,6 @@ texture = ExtResource("3_23ai5")
 
 [node name="Marker2D" parent="." index="6" unique_id=1974895909 instance=ExtResource("4_ca3qv")]
 position = Vector2(32, -38)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="9" unique_id=1391140130]
+stream = ExtResource("6_stur5")
