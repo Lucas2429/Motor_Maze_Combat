@@ -43,8 +43,6 @@ func spawn_explosion(pos):
 
 var exploded := false
 
-
-
 func _ready():
 	health_bar.max_value = hp
 	health_bar.value = hp
@@ -77,9 +75,6 @@ func take_damage(value: int) -> void:
 		if multiplayer.is_server():
 			destroy_player.rpc()
 	health_bar.value = hp
-			
-func disable_player():
-	return
 
 @rpc("any_peer", "call_local", "reliable")
 func destroy_player() -> void:
@@ -106,9 +101,9 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	
 func setup(data: Statics.PlayerData) -> void:
+	Debug.log(data.vote)
 	player_id = str(data.id)
 	label.text = data.name
 	player_name = data.name
-	Debug.log(data.vote)
 	set_multiplayer_authority(data.id, false)
 	multiplayer_synchronizer.set_multiplayer_authority(data.id, false)

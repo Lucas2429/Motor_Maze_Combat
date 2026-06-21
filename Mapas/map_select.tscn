@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://c13ww1hrs86t5"]
+
+[ext_resource type="Script" uid="uid://co713jlal18pr" path="res://scripts/map_select.gd" id="1_mehm8"]
+[ext_resource type="FontFile" uid="uid://dcmda6usqnvyx" path="res://resources/fonts/Fortzilla_Font_1_14/TrueType (.ttf)/Fortzilla-Regular.ttf" id="2_ey5ob"]
+
+[node name="MapSelect" type="Control" unique_id=1307030663]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mehm8")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=898670229]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1566440358]
+layout_mode = 2
+
+[node name="MapSelectionContainer" type="CenterContainer" parent="PanelContainer/MarginContainer" unique_id=2115000903]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/MapSelectionContainer" unique_id=438589054]
+layout_mode = 2
+theme_override_constants/separation = 200
+
+[node name="Map1VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/MapSelectionContainer/HBoxContainer" unique_id=1054938197]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Map1" type="Label" parent="PanelContainer/MarginContainer/MapSelectionContainer/HBoxContainer/Map1VBoxContainer" unique_id=650836263]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_ey5ob")
+theme_override_font_sizes/font_size = 60
+text = "Map 1"
+
+[node name="Map1SelectButton" type="Button" parent="PanelContainer/MarginContainer/MapSelectionContainer/HBoxContainer/Map1VBoxContainer" unique_id=245625058]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_ey5ob")
+theme_override_font_sizes/font_size = 72
+text = "  Vote  
+"
+autowrap_trim_flags = 0
+
+[node name="Map1VoteCount" type="Label" parent="PanelContainer/MarginContainer/MapSelectionContainer/HBoxContainer/Map1VBoxContainer" unique_id=830450621]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_ey5ob")
+theme_override_font_sizes/font_size = 60
+text = "0"
+
+[node name="Map2VBoxContainer2" type="VBoxContainer" parent="PanelContainer/MarginContainer/MapSelectionContainer/HBoxContainer" unique_id=1816429609]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Map2" type="Label" parent="PanelContainer/MarginContainer/MapSelectionContainer/HBoxContainer/Map2VBoxContainer2" unique_id=1167947999]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_ey5ob")
+theme_override_font_sizes/font_size = 60
+text = "Map 2"
+
+[node name="Map2SelectButton" type="Button" parent="PanelContainer/MarginContainer/MapSelectionContainer/HBoxContainer/Map2VBoxContainer2" unique_id=233857129]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_ey5ob")
+theme_override_font_sizes/font_size = 72
+text = "  Vote  "
+
+[node name="Map2VoteCount" type="Label" parent="PanelContainer/MarginContainer/MapSelectionContainer/HBoxContainer/Map2VBoxContainer2" unique_id=11797322]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_ey5ob")
+theme_override_font_sizes/font_size = 60
+text = "0"
+
+[node name="Map3VBoxContainer3" type="VBoxContainer" parent="PanelContainer/MarginContainer/MapSelectionContainer/HBoxContainer" unique_id=287450592]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Map3" type="Label" parent="PanelContainer/MarginContainer/MapSelectionContainer/HBoxContainer/Map3VBoxContainer3" unique_id=144759047]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_ey5ob")
+theme_override_font_sizes/font_size = 60
+text = "Map 3"
+
+[node name="Map3SelectButton" type="Button" parent="PanelContainer/MarginContainer/MapSelectionContainer/HBoxContainer/Map3VBoxContainer3" unique_id=910911832]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_ey5ob")
+theme_override_font_sizes/font_size = 72
+text = "  Vote  "
+
+[node name="Map3VoteCount" type="Label" parent="PanelContainer/MarginContainer/MapSelectionContainer/HBoxContainer/Map3VBoxContainer3" unique_id=1937772506]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_ey5ob")
+theme_override_font_sizes/font_size = 60
+text = "0"

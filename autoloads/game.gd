@@ -14,6 +14,9 @@ signal player_index_received()
 @export var test_players: Array[PlayerDataResource] = [] # first one is server
 @export var main_scene: PackedScene
 
+var first_game: bool = true
+var map_chosen: int = -1
+
 var players: Array[Statics.PlayerData] = []
 var change_window_scale := true :
 	set(value):
@@ -135,11 +138,11 @@ func all_voted() -> bool:
 		result = result && player.vote
 	return result
 
+
 func is_online() -> bool:
 	return not multiplayer.multiplayer_peer is OfflineMultiplayerPeer and \
 		multiplayer.multiplayer_peer.get_connection_status() != MultiplayerPeer.CONNECTION_DISCONNECTED
-
-
+	
 func update_player_id() -> void:
 	if not OS.is_debug_build():
 		return

@@ -42,14 +42,3 @@ func shoot() -> void:
 		"marker": marker.global_position,
 		"rotation": global_rotation_degrees
 	})
-	
-func disable_player():
-	label.text = ""
-	sprite.visible = false
-	collision.disabled = true
-	hurtbox_collision.disabled = true
-	hurtbox.set_collision_layer_value(5, false)
-	hurtbox.set_collision_mask_value(5, false)
-	health_bar.visible = false
-	mp_5.visible = false
-	mp_6.visible = false
