@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b3qhuk1gar7ay" path="res://scripts/player_SMG.gd" id="2_3na1y"]
 [ext_resource type="Texture2D" uid="uid://skvty5encbrp" path="res://resources/MP5.png" id="3_pq7wh"]
 [ext_resource type="PackedScene" uid="uid://ckrtbgbp15bpp" path="res://bullets/marker_2d.tscn" id="4_3r7g3"]
+[ext_resource type="AudioStream" uid="uid://rtxucst3v33o" path="res://sfx/smg.wav" id="5_noc6n"]
 
 [node name="player" unique_id=838864319 instance=ExtResource("1_teq81")]
 script = ExtResource("2_3na1y")
@@ -28,3 +29,6 @@ position = Vector2(-36, -34)
 
 [node name="Marker2D" parent="." index="8" unique_id=1256905485 instance=ExtResource("4_3r7g3")]
 position = Vector2(37, -34)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="11" unique_id=431468502]
+stream = ExtResource("5_noc6n")

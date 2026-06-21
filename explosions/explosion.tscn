@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://bd4wbsgigngxp" path="res://resources/explosion/0021.png" id="22_77cng"]
 [ext_resource type="Texture2D" uid="uid://5weyxbmf6nus" path="res://resources/explosion/0022.png" id="23_6twiv"]
 [ext_resource type="Texture2D" uid="uid://bnkc4co3gcfo8" path="res://resources/explosion/0023.png" id="24_g4o38"]
+[ext_resource type="AudioStream" uid="uid://diax0r3q5uqto" path="res://sfx/Medium_Explosion_2.wav" id="24_popj5"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_w2wwn"]
 
@@ -98,7 +99,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("24_g4o38")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 14.0
 }]
@@ -201,3 +202,6 @@ sprite_frames = SubResource("SpriteFrames_kvw7p")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=644354345]
 libraries/ = SubResource("AnimationLibrary_0cay2")
 speed_scale = 0.5
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1278897019]
+stream = ExtResource("24_popj5")

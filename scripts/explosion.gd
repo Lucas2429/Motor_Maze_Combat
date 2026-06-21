@@ -4,6 +4,7 @@ extends Area2D
 var damage=30
 var already_damaged_ids := {}
 var damaging_animation=true
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 @export var cooldown_explode: float =0.2
 var cooldown_explode_delta: float = -1
@@ -14,6 +15,7 @@ func _ready() -> void:
 @rpc("call_local")
 func play_explosion():
 	animation_player.play("exploding")
+	audio_stream_player.play()
 
 func _process(delta):
 
