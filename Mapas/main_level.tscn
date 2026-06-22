@@ -170,19 +170,20 @@ tile_set = SubResource("TileSet_ydnlh")
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=498242867]
 
 [node name="Marker2D" type="Marker2D" parent="SpawnPoints" unique_id=1960712945]
-position = Vector2(205, 223)
+position = Vector2(132, 150)
 
 [node name="Marker2D2" type="Marker2D" parent="SpawnPoints" unique_id=306221836]
-position = Vector2(1028, 1009)
+position = Vector2(1081, 1131)
 
 [node name="Marker2D3" type="Marker2D" parent="SpawnPoints" unique_id=443337398]
-position = Vector2(1928, 219)
+position = Vector2(2048, 139)
 
 [node name="Players" type="Node2D" parent="." unique_id=917240552]
 
 [node name="Nametags" type="Node2D" parent="." unique_id=548572305]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=776515850]
+visible = false
 
 [node name="GameOverScreen" parent="CanvasLayer" unique_id=1973076604 instance=ExtResource("7_bvtlw")]
 
