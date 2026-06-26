@@ -14,7 +14,7 @@ extends BasicPlayer
 var booleano: bool=true
 
 func spawn_bullet(data):
-	var b = bullet_scene.instantiate()
+	var b: Bullet = bullet_scene.instantiate()
 
 	b.player_id = data.player_id
 	b.global_position  = data.marker

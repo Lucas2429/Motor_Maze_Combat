@@ -37,10 +37,9 @@ func shoot() -> void:
 	var spread: int=-20
 	play.travel("shooting")
 	for i in 5:
-		var b = bullet_scene.instantiate()
 		multiplayer_spawner.spawn({
 			"player_id": player_id,
 			"marker": marker.global_position,
 			"rotation": global_rotation_degrees + spread
 		})
-		spread+=10
+		spread+=6
