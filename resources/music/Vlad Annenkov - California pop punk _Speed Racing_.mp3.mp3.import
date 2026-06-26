@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://byijsoerxdm8u"
+path="res://.godot/imported/Vlad Annenkov - California pop punk _Speed Racing_.mp3.mp3-70eeb7069cbe01eb25f4daed0b1feab3.mp3str"
+
+[deps]
+
+source_file="res://resources/music/Vlad Annenkov - California pop punk _Speed Racing_.mp3.mp3"
+dest_files=["res://.godot/imported/Vlad Annenkov - California pop punk _Speed Racing_.mp3.mp3-70eeb7069cbe01eb25f4daed0b1feab3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

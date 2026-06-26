@@ -183,7 +183,6 @@ position = Vector2(2048, 139)
 [node name="Nametags" type="Node2D" parent="." unique_id=548572305]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=776515850]
-visible = false
 
 [node name="GameOverScreen" parent="CanvasLayer" unique_id=1973076604 instance=ExtResource("7_bvtlw")]
 
