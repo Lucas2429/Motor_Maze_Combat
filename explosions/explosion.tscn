@@ -205,3 +205,4 @@ speed_scale = 0.5
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1278897019]
 stream = ExtResource("24_popj5")
+volume_db = -22.0
